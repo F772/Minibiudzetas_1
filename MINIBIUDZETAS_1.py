@@ -1,3 +1,5 @@
+
+
 pajamu_listas = []
 islaidu_listas = []
 
@@ -28,4 +30,10 @@ while True:
         islaidu_listas.append(f"Busto nuomos islaidos: {nuoma}")
         islaidu_listas.append(f"Komunalines islaidos: {komunaliniai}")
         islaidu_listas.append(f"Maisto islaidos: {maistas}")
+
+    if pasirinkimas == "3":
+        print(pajamu_listas)
+
+    if pasirinkimas == "4":
+        print(islaidu_listas)
 
