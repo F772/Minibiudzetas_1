@@ -1,7 +1,14 @@
-
+import pickle
 
 pajamu_listas = []
 islaidu_listas = []
+
+try:
+    with open("listas.pickle", mode="rb") as file:
+        pajamu_listas, islaidu_listas = pickle.load(file)
+except (FileNotFoundError, EOFError):
+    pajamu_listas = []
+    islaidu_listas = []
 
 while True:
     print("1. Ivesti pajamas\n"
@@ -36,4 +43,8 @@ while True:
 
     if pasirinkimas == "4":
         print(islaidu_listas)
+
+with open("listas.pickle", mode="wb") as file:
+    # noinspection PyTypeChecker
+    pickle.dump((pajamu_listas, islaidu_listas), file)
 
