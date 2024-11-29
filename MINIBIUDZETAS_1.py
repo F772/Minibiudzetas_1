@@ -15,13 +15,17 @@ while True:
 
     if pasirinkimas == "1":
         atlyginimas = input("Iveskite atlyginima: ")
-        for elem in atlyginimas:
-            pajamu_listas.append(elem)
         avansas = input("Iveskite avansa: ")
-        for elem in avansas:
-            pajamu_listas.append(elem)
         stipendija = input("Iveskite stipendija: ")
-        for elem in stipendija:
-            pajamu_listas.append(elem)
+        pajamu_listas.append(f"Atlyginimas: {atlyginimas}")
+        pajamu_listas.append(f"Avansas: {avansas}")
+        pajamu_listas.append(f"Stipendija: {stipendija}")
 
+    if pasirinkimas == "2":
+        nuoma = input("Iveskite busto nuomos islaidas: ")
+        komunaliniai = input("Iveskite komunalinias islaidas: ")
+        maistas = input("Iveskite maisto islaidas: ")
+        islaidu_listas.append(f"Busto nuomos islaidos: {nuoma}")
+        islaidu_listas.append(f"Komunalines islaidos: {komunaliniai}")
+        islaidu_listas.append(f"Maisto islaidos: {maistas}")
 
