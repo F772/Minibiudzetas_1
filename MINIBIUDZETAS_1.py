@@ -1,7 +1,6 @@
 import pickle
-
-pajamu_listas = []
-islaidu_listas = []
+import failas.biblioteka
+from failas.biblioteka import ivesti_pajamas, ivesti_islaidas, statistika
 
 try:
     with open("listas.pickle", mode="rb") as file:
@@ -23,20 +22,10 @@ while True:
         break
 
     if pasirinkimas == "1":
-        atlyginimas = input("Iveskite atlyginima: ")
-        avansas = input("Iveskite avansa: ")
-        stipendija = input("Iveskite stipendija: ")
-        pajamu_listas.append(f"Atlyginimas: {atlyginimas}")
-        pajamu_listas.append(f"Avansas: {avansas}")
-        pajamu_listas.append(f"Stipendija: {stipendija}")
+        ivesti_pajamas(pajamu_listas)
 
     if pasirinkimas == "2":
-        nuoma = input("Iveskite busto nuomos islaidas: ")
-        komunaliniai = input("Iveskite komunalinias islaidas: ")
-        maistas = input("Iveskite maisto islaidas: ")
-        islaidu_listas.append(f"Busto nuomos islaidos: {nuoma}")
-        islaidu_listas.append(f"Komunalines islaidos: {komunaliniai}")
-        islaidu_listas.append(f"Maisto islaidos: {maistas}")
+        ivesti_islaidas(islaidu_listas)
 
     if pasirinkimas == "3":
         print(pajamu_listas)
@@ -44,7 +33,12 @@ while True:
     if pasirinkimas == "4":
         print(islaidu_listas)
 
+    if pasirinkimas == "5":
+        pajamu_suma, islaidu_suma, galutine_suma = statistika(pajamu_listas, islaidu_listas)
+        print(f"Galutine suma: {galutine_suma}")
+        print(f"Pajamu suma: {pajamu_suma}")
+        print(f"Islaidu suma: {islaidu_suma}")
+
 with open("listas.pickle", mode="wb") as file:
     # noinspection PyTypeChecker
     pickle.dump((pajamu_listas, islaidu_listas), file)
-
